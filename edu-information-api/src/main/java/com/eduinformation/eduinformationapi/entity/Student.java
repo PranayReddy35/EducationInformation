@@ -32,7 +32,8 @@ public class Student {
 	@SequenceGenerator(
 			name="student_sequence",
 			sequenceName="student_sequence",
-			allocationSize=1)
+			allocationSize=1
+	)
 	@GeneratedValue(
 			strategy=GenerationType.SEQUENCE,
 			generator="student_sequence")
@@ -42,7 +43,7 @@ public class Student {
 	
 	@Column(
 			name="email_address",
-			nullable=false	
+			nullable=false
 	)
 	private String emailId;
 	
