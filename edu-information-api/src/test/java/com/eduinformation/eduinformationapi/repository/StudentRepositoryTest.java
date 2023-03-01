@@ -9,25 +9,26 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.eduinformation.eduinformationapi.entity.Guardian;
 import com.eduinformation.eduinformationapi.entity.Student;
 
+
 @SpringBootTest
 class StudentRepositoryTest {
 
 	@Autowired
 	private StudentRepository studentRepository;
 
-	@Test
-	public void saveStudent() {
-		Student student= Student.builder()
-				.emailId("Deekshalwa@gmail.com")
-				.firstName("Deeksha")
-				.lastName("Reddy")
-//				.guardianName("AnanthaReddy")
-//				.guardianEmail("Ananthaalwa@gmail.com")
-//				.guardianMobile("1234567890")
-				.build();
-		
-		studentRepository.save(student);
-	}
+//	@Test
+//	public void saveStudent() {
+//		Student student= Student.builder()
+//				.emailId("Pranayalwa@gmail.com")
+//				.firstName("Pranay")
+//				.lastName("Reddy")
+////				.guardianName("AnanthaReddy")
+////				.guardianEmail("Ananthaalwa@gmail.com")
+////				.guardianMobile("1234567890")
+//				.build();
+//
+//		studentRepository.save(student);
+//	}
 	@Test
 	public void saveStudentWithGuardian() {
 		
@@ -86,12 +87,25 @@ class StudentRepositoryTest {
 		System.out.println("FirstName = "+firstName);
 	}
 	@Test
-	public void printStudentByEmailAddressNative() {
+	public void printGetStudentByEmailAddressNative() {
 
 		Student student=
 				studentRepository.getStudentByEmailAddressNative(
 						"Deekshaalwa@gmail.com");
 		System.out.println("Students = "+student);
 	}
-	
+	@Test
+	public void printGetStudentByEmailAddressNativeNamedParam(){
+		Student student=
+				studentRepository.getStudentByEmailAddressNativeNamedParam(
+						"Deekshaalwa@gmail.com");
+		System.out.println("Students = "+student);
+	}
+//	@Test
+//	public void updateStudentNameByEmailIdTest(){
+//		studentRepository.updateStudentNameByEmailId(
+//				"Deekshitha","Deekshaalwa@gmail.com");
+//	}
+
+
 }
